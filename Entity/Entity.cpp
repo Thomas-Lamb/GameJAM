@@ -23,4 +23,6 @@ sf::Vector2f Entity::getSize(){}
 
 void Entity::setPosition(sf::Vector2f pos){}
 
+sf::Sprite Entity::getSprite(){}
+
 Entity::~Entity(){}

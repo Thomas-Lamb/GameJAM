@@ -18,6 +18,7 @@ Player::Player()
 void Player::capacity()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) capacity_balise.use(this);
+    capacity_speed.use(this);
 }
 
 void Player::use(Save *save, Lib* lib)
@@ -41,6 +42,8 @@ void Player::draw(Lib *lib)
 {
     capacity_balise.draw(lib);
     capacity_shoot.draw(lib);
+    capacity_speed.draw(lib);
+    lib->printText(std::to_string(speed), {getPosition().x + 75, getPosition().y}, 75, sf::Color::White);
     lib->getWindow().draw(_sprite);
 }
 
@@ -61,6 +64,21 @@ sf::Vector2f Player::getSize()
 void Player::setPosition(sf::Vector2f pos)
 {
     _sprite.setPosition(pos);
+}
+
+void Player::setSpeed(float sp)
+{
+    speed = sp;
+}
+
+void Player::resetSpeed()
+{
+    speed = 5.f;
+}
+
+sf::Sprite Player::getSprite()
+{
+    return _sprite;
 }
 
 Player::~Player()

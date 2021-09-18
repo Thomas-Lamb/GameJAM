@@ -19,7 +19,7 @@ class Core {
         Core();
         ~Core();
 
-	    void switchScene(int id);
+	    void switchScene(int);
 	    void use();
 	    Lib* getLib();
 		Save* getSave();

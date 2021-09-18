@@ -18,13 +18,13 @@ class Button {
         Button(sf::Color color, sf::Vector2f pos, sf::Vector2f size, std::string name, std::string texture = "", sf::Color textColor = sf::Color::White);
         ~Button();
 
-        bool isClick(sf::Vector2i mousePos);
-        void print(Lib *lib);
+        bool isClick(sf::Vector2i);
+        void print(Lib*);
         const float getWidth();
         const float getHeight();
         const float getX();
         const float getY();
-        void setText(std::string text);
+        void setText(std::string);
         const std::string getName();
 
     private:

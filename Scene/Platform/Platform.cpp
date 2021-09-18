@@ -17,9 +17,7 @@ Platform::Platform(Save *save) : IScene(save)
 
     texture_background.loadFromFile("asset/back.png");
     sprite_background.setTexture(texture_background);
-
     save->getEntities()[0]->setPosition({sf::Vector2f(texture_background.getSize().x / 2, texture_background.getSize().y / 2)});
-
     timer = 0;
 }
 
@@ -41,7 +39,8 @@ void Platform::use(Core *core)
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) core->switchScene(0);
     }
 
-    _camera.setCenter(core->getSave()->getEntities()[0]->getPosition().x + core->getSave()->getEntities()[0]->getSize().x / 2, core->getSave()->getEntities()[0]->getPosition().y + core->getSave()->getEntities()[0]->getSize().y / 2);
+    _camera.setCenter(core->getSave()->getEntities()[0]->getPosition().x + core->getSave()->getEntities()[0]->getSize().x / 2,
+                    core->getSave()->getEntities()[0]->getPosition().y + core->getSave()->getEntities()[0]->getSize().y / 2);
     core->getLib()->getWindow().setView(_camera);
 
     core->getLib()->getWindow().clear(sf::Color::Black);

@@ -21,6 +21,7 @@ class Zombie : public Entity
         int getId();
         sf::Vector2f getPosition();
         sf::Vector2f getSize();
+        sf::Sprite getSprite();
         void setPosition(sf::Vector2f);
         void follow_target(sf::Vector2f);
         void touch_target(Entity*);

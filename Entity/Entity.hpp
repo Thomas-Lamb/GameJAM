@@ -25,6 +25,7 @@ class Entity {
         virtual sf::Vector2f getPosition();
         virtual sf::Vector2f getSize();
         virtual void setPosition(sf::Vector2f);
+        virtual sf::Sprite getSprite();
 
     protected:
     private:

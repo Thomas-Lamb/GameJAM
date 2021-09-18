@@ -18,7 +18,7 @@ class Platform : public IScene
         Platform(Save*);
         ~Platform();
 
-        void use(Core *core);
+        void use(Core*);
         int getId();
     private:
         sf::View _camera;

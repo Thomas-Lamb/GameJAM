@@ -10,7 +10,7 @@ class MainMenu : public IScene
 	    MainMenu(Save*);
 	    ~MainMenu();
 
-	    void use(Core *core);
+	    void use(Core*);
 	    int getId();
 };
 

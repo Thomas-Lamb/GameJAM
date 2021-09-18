@@ -64,6 +64,11 @@ void Zombie::setPosition(sf::Vector2f pos)
     _sprite.setPosition(pos);
 }
 
+sf::Sprite Zombie::getSprite()
+{
+    return _sprite;
+}
+
 Zombie::~Zombie()
 {
 }

@@ -22,6 +22,11 @@ void Save::addEntity(Entity *entity)
     _entites.push_back(entity);
 }
 
+void Save::removeEntity(int i)
+{
+    _entites.erase(_entites.begin() + i);
+}
+
 Save::~Save()
 {
 }

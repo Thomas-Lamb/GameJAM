@@ -38,6 +38,18 @@ void Shoot::use(Save *save, Lib *lib)
         projectiles[i].shape.move(cos(projectiles[i].angleShoot2) * speed, 0);
         projectiles[i].shape.move(0, sin(projectiles[i].angleShoot2) * speed);
     }
+    for (int i = 0; i < projectiles.size(); i++)
+    {
+        for (int k = 1; k < save->getEntities().size(); k++)
+        {
+            if (projectiles[i].shape.getGlobalBounds().intersects(save->getEntities()[k]->getSprite().getGlobalBounds()))
+            {
+                projectiles.erase(projectiles.begin() + i);
+                save->removeEntity(k);
+                break;
+            }
+        }
+    }
 }
 
 void Shoot::draw(Lib *lib)

@@ -11,6 +11,7 @@
 #include "../Entity.hpp"
 #include "../../Capacity/Balise/Balise.hpp"
 #include "../../Capacity/Shoot/Shoot.hpp"
+#include "../../Capacity/Speed/Speed.hpp"
 
 class Player : public Entity
 {
@@ -23,10 +24,12 @@ class Player : public Entity
         int getId();
         sf::Vector2f getPosition();
         sf::Vector2f getSize();
+        sf::Sprite getSprite();
         void setPosition(sf::Vector2f);
 
         void capacity();
-
+        void setSpeed(float sp);
+        void resetSpeed();
 
     private:
         sf::Texture _texture;
@@ -35,6 +38,7 @@ class Player : public Entity
         bool left, right, up, down;
         Balise capacity_balise;
         Shoot capacity_shoot;
+        Speed capacity_speed;
 
 };
 

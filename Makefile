@@ -2,6 +2,7 @@ NAME =	a
 
 SRC		=	Capacity/Balise/Balise.cpp \
 			Capacity/Shoot/Shoot.cpp \
+			Capacity/Speed/Speed.cpp \
 			Core/Core.cpp \
 			Entity/Zombie/Zombie.cpp \
 			Entity/Player/Player.cpp \

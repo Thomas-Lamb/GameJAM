@@ -19,6 +19,7 @@ class Save {
 
         std::vector<Entity*> getEntities();
         void addEntity(Entity*);
+        void removeEntity(int);
 
     protected:
     private:
