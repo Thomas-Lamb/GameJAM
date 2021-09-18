@@ -12,7 +12,7 @@
 
 Zombie::Zombie(sf::Vector2f position)
 {
-    _texture.loadFromFile("asset/zombie.png");
+    _texture.loadFromFile("asset/zombie1.png");
     _sprite.setTexture(_texture);
     _sprite.setPosition(position);
 }
