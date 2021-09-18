@@ -8,6 +8,10 @@
 #include "Platform.hpp"
 #include "../../Entity/Player/Player.hpp"
 #include "../../Entity/Zombie/Zombie.hpp"
+#include <stdlib.h>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
 Platform::Platform(Save *save) : IScene(save)
 {
@@ -23,9 +27,17 @@ Platform::Platform(Save *save) : IScene(save)
 
 void Platform::use(Core *core)
 {
+    sf::Vector2f vectSpawn;
+    int rand = 0;
     if (timer > 15)
     {
-        core->getSave()->addEntity(new Zombie());
+        rand = (std::rand() % 4) + 1;
+        vectSpawn = core->getSave()->getEntities()[0]->getPosition();
+        if (rand == 1) {vectSpawn.x += 1000; vectSpawn.y += (std::rand() % 2000) - 1000;}
+        if (rand == 2) {vectSpawn.x -= 1000; vectSpawn.y += (std::rand() % 2000) - 1000;}
+        if (rand == 3) {vectSpawn.y += 1000; vectSpawn.x += (std::rand() % 2000) - 1000;}
+        if (rand == 4) {vectSpawn.y -= 1000; vectSpawn.x += (std::rand() % 2000) - 1000;}
+        core->getSave()->addEntity(new Zombie(vectSpawn));
         timer = 0;
     }
     else timer++;

@@ -46,6 +46,7 @@ void Shoot::use(Save *save, Lib *lib)
             {
                 projectiles.erase(projectiles.begin() + i);
                 save->removeEntity(k);
+                player->gold += 5;
                 break;
             }
         }

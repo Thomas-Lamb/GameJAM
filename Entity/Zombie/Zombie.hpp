@@ -13,7 +13,7 @@
 class Zombie : public Entity
 {
     public:
-        Zombie();
+        Zombie(sf::Vector2f position);
         ~Zombie();
 
         void use(Save*, Lib*);

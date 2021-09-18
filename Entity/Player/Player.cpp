@@ -13,6 +13,7 @@ Player::Player()
     _texture.loadFromFile("Asset/player.png");
     _sprite.setTexture(_texture);
     speed = 5.f;
+    gold = 0;
 }
 
 void Player::capacity()

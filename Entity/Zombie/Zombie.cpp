@@ -10,10 +10,11 @@
 #include "../../Save/Save.hpp"
 #include <cmath>
 
-Zombie::Zombie()
+Zombie::Zombie(sf::Vector2f position)
 {
     _texture.loadFromFile("asset/zombie.png");
     _sprite.setTexture(_texture);
+    _sprite.setPosition(position);
 }
 
 void Zombie::use(Save *save, Lib* lib)
