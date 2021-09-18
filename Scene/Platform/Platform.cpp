@@ -61,8 +61,6 @@ void Platform::use(Core *core)
 
     for (int i = 0; i < core->getSave()->getEntities().size(); i++) core->getSave()->getEntities()[i]->draw(core->getLib());
 
-    core->getLib()->printText(std::to_string(core->getSave()->getEntities().size()), {core->getSave()->getEntities()[0]->getPosition().x, core->getSave()->getEntities()[0]->getPosition().y + 80}, 75, sf::Color::White);
-
     core->getLib()->getWindow().display();
 }
 
