@@ -10,7 +10,7 @@
 
 Player::Player()
 {
-    _texture.loadFromFile("asset/player.png");
+    _texture.loadFromFile("asset/peon.png");
     _sprite.setTexture(_texture);
     speed = 5.f;
     gold = 0;
