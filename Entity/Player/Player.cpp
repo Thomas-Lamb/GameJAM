@@ -10,7 +10,7 @@
 
 Player::Player()
 {
-    _texture.loadFromFile("Asset/player.png");
+    _texture.loadFromFile("asset/player.png");
     _sprite.setTexture(_texture);
     speed = 5.f;
     gold = 0;
@@ -18,7 +18,7 @@ Player::Player()
 
 void Player::capacity()
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) capacity_balise.use(this);
+    capacity_balise.use(this);
     capacity_speed.use(this);
 }
 
@@ -37,6 +37,11 @@ void Player::use(Save *save, Lib* lib)
     if (left) _sprite.move(-speed, 0.f);
     if (right) _sprite.move(speed, 0.f);
 
+    if (_sprite.getPosition().x < 0) _sprite.setPosition({0, _sprite.getPosition().y});
+    if (_sprite.getPosition().x >= 8192 - _texture.getSize().x) _sprite.setPosition({8192 - _texture.getSize().x,  _sprite.getPosition().y});
+    if (_sprite.getPosition().y < 0) _sprite.setPosition(_sprite.getPosition().x, 0);
+    if (_sprite.getPosition().y >= 8192 - _texture.getSize().y) _sprite.setPosition(_sprite.getPosition().x, 8190 - _texture.getSize().y);
+
 }
 
 void Player::draw(Lib *lib)
@@ -44,7 +49,6 @@ void Player::draw(Lib *lib)
     capacity_balise.draw(lib);
     capacity_shoot.draw(lib);
     capacity_speed.draw(lib);
-    lib->printText(std::to_string(speed), {getPosition().x + 75, getPosition().y}, 75, sf::Color::White);
     lib->getWindow().draw(_sprite);
 }
 
@@ -80,6 +84,11 @@ void Player::resetSpeed()
 sf::Sprite Player::getSprite()
 {
     return _sprite;
+}
+
+float Player::getSpeed()
+{
+    return speed;
 }
 
 Player::~Player()
