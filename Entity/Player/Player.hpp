@@ -30,6 +30,7 @@ class Player : public Entity
         void capacity();
         void setSpeed(float sp);
         void resetSpeed();
+        float getSpeed();
 
     private:
         sf::Texture _texture;
