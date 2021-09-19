@@ -13,13 +13,11 @@ Player::Player()
     _texture.loadFromFile("asset/peon.png");
     _sprite.setTexture(_texture);
     speed = 5.f;
-    gold = 0;
 }
 
 void Player::capacity()
 {
     capacity_balise.use(this);
-    capacity_speed.use(this);
 }
 
 void Player::use(Save *save, Lib* lib)
@@ -30,6 +28,7 @@ void Player::use(Save *save, Lib* lib)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) right = true; else right = false;
 
     capacity_shoot.use(save, lib);
+    capacity_speed.use(this, lib);
     capacity();
 
     if (up) _sprite.move(0.f, -speed);

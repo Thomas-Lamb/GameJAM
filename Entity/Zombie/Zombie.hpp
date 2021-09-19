@@ -24,7 +24,7 @@ class Zombie : public Entity
         sf::Sprite getSprite();
         void setPosition(sf::Vector2f);
         void follow_target(sf::Vector2f);
-        void touch_target(Entity*);
+        void touch_target(Entity*, Save*);
 
     private:
         sf::Texture _texture;

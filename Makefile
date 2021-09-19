@@ -1,4 +1,4 @@
-NAME =	a
+NAME =	Havane
 
 SRC		=	Capacity/Balise/Balise.cpp \
 			Capacity/Shoot/Shoot.cpp \
@@ -11,6 +11,7 @@ SRC		=	Capacity/Balise/Balise.cpp \
 			Lib/Button.cpp \
 			Save/Save.cpp \
 			Scene/IScene.cpp \
+			Scene/GameOver/GameOver.cpp \
 			Scene/MainMenu/MainMenu.cpp \
 			Scene/Platform/Platform.cpp \
 			main.cpp \

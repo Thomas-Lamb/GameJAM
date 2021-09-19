@@ -36,7 +36,6 @@ class Player : public Entity
         sf::Texture _texture;
         sf::Sprite _sprite;
         float speed;
-        int gold;
         bool left, right, up, down;
         Balise capacity_balise;
         Shoot capacity_shoot;

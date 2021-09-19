@@ -26,6 +26,8 @@ class Balise {
         int numberUseLeft;
         sf::RectangleShape texture_balise;
         int cooldown, maxCooldown;
+        sf::Texture texture_show_balise;
+        sf::Sprite sprite_show_balise;
 };
 
 #endif /* !BALISE_HPP_ */

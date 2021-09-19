@@ -18,12 +18,15 @@ class Speed {
         Speed();
         ~Speed();
 
-        void use(Player*);
+        void use(Player*, Lib*);
         void draw(Lib*);
     private:
         int energy;
         bool used;
+        float speedBoost;
         sf::Vector2f cpPlayerPos;
+        sf::Texture texture_show_speed;
+        sf::Sprite sprite_show_speed;
 };
 
 #endif /* !SPEED_HPP_ */

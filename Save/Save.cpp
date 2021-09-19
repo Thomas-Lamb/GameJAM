@@ -10,6 +10,7 @@
 
 Save::Save()
 {
+    gameOver = false;
 }
 
 std::vector<Entity*> Save::getEntities()

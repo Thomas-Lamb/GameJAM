@@ -1,6 +1,7 @@
 #include "Core.hpp"
 #include "../Scene/MainMenu/MainMenu.hpp"
 #include "../Scene/Platform/Platform.hpp"
+#include "../Scene/GameOver/GameOver.hpp"
 #include "../Entity/Player/Player.hpp"
 #include "../Entity/Entity.hpp"
 
@@ -11,6 +12,7 @@ Core::Core()
     _save->addEntity(new Player());
 	_scenes.push_back(new MainMenu(_save));
     _scenes.push_back(new Platform(_save));
+    _scenes.push_back(new GameOver(_save));
 }
 
 void Core::switchScene(int id)

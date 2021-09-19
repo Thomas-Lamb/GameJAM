@@ -20,7 +20,7 @@ Zombie::Zombie(sf::Vector2f position)
 void Zombie::use(Save *save, Lib* lib)
 {
     follow_target(save->getEntities()[0]->getPosition());
-    touch_target(save->getEntities()[0]);
+    touch_target(save->getEntities()[0], save);
 }
 
 void Zombie::follow_target(sf::Vector2f target)
@@ -32,13 +32,10 @@ void Zombie::follow_target(sf::Vector2f target)
     if (_sprite.getPosition().x != target.x) _sprite.move(moveVec.x * 3, moveVec.y * 3);
 }
 
-void Zombie::touch_target(Entity *target)
+void Zombie::touch_target(Entity *target, Save *save)
 {
-    if (_sprite.getPosition().x < target->getPosition().x + target->getSize().x &&
-        _sprite.getPosition().x + getSize().x > target->getPosition().x &&
-        _sprite.getPosition().y < target->getPosition().y + target->getSize().y &&
-        _sprite.getPosition().y + getSize().y > target->getPosition().y)
-    _sprite.setPosition(0, 0);
+    if (target->getSprite().getGlobalBounds().intersects(getSprite().getGlobalBounds()))
+    save->gameOver = true;
 }
 
 void Zombie::draw(Lib *lib)

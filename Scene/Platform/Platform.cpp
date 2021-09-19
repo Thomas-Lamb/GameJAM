@@ -48,7 +48,13 @@ void Platform::use(Core *core)
     {
         if (core->getLib()->getEvent().type == sf::Event::Closed) core->switchScene(-1);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) core->switchScene(-1);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) core->switchScene(0);
+        if (core->getSave()->gameOver) core->switchScene(2);
+    }
+
+    for (int i = 1; i < core->getSave()->getEntities().size(); i++)
+    {
+        if (core->getSave()->getEntities()[i]->getSprite().getGlobalBounds().intersects(core->getSave()->getEntities()[0]->getSprite().getGlobalBounds()))
+         {core->getLib()->playDeath(); core->switchScene(2); }
     }
 
     _camera.setCenter(core->getSave()->getEntities()[0]->getPosition().x + core->getSave()->getEntities()[0]->getSize().x / 2,

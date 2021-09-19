@@ -24,6 +24,7 @@ void Shoot::use(Save *save, Lib *lib)
     if (timer < cooldown) timer++;
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && timer >= cooldown)
     {
+        lib->playFireBall();
         bullet_type.shape.setPosition({save->getEntities()[0]->getPosition().x + save->getEntities()[0]->getSize().x / 2,
                                 save->getEntities()[0]->getPosition().y + save->getEntities()[0]->getSize().y / 2});
         sf::Vector2f mousePosition = lib->getWindow().mapPixelToCoords(sf::Mouse::getPosition(lib->getWindow()));
@@ -46,7 +47,6 @@ void Shoot::use(Save *save, Lib *lib)
             {
                 projectiles.erase(projectiles.begin() + i);
                 save->removeEntity(k);
-                player->gold += 5;
                 break;
             }
         }
